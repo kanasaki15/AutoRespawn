@@ -1,0 +1,6 @@
+name: AutoRespawn
+version: @version@
+main: xyz.n7mn.dev.autorespawn.AutoRespawn
+authors: [ 7mi_chan ]
+description: AutoRespawn
+website: https://n7mn.xyz/
