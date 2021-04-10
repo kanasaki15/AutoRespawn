@@ -11,7 +11,7 @@ public final class AutoRespawn extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventListener(this), this);
 
         getCommand("gm").setExecutor(new GamemodeCommand());
-        getCommand("gb").setExecutor(new GamemodeCommand());
+        getCommand("gb").setExecutor(new GiveBarrierCommand());
     }
 
     @Override

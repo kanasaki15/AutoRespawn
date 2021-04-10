@@ -8,7 +8,6 @@ commands:
   gm:
     usage: '/gm <0/1/2/3>'
     description: '短縮'
-
   gb:
     usage: '/gb'
     description: ''
