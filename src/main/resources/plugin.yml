@@ -4,3 +4,11 @@ main: xyz.n7mn.dev.autorespawn.AutoRespawn
 authors: [ 7mi_chan ]
 description: AutoRespawn
 website: https://n7mn.xyz/
+commands:
+  gm:
+    usage: '/gm <0/1/2/3>'
+    description: '短縮'
+
+  gb:
+    usage: '/gb'
+    description: ''
