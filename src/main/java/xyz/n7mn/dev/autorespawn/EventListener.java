@@ -17,15 +17,17 @@ public class EventListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void PlayerDeathEvent(PlayerDeathEvent e){
-        BukkitRunnable runnable = new BukkitRunnable() {
-            @Override
-            public void run() {
-                e.getEntity().sendMessage("自動リスポーンします...");
-                e.getEntity().spigot().respawn();
-            }
-        };
 
-        runnable.runTaskLater(plugin, 5L);
+        new Thread(()-> {
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    e.getEntity().sendMessage("自動リスポーンします...");
+                    e.getEntity().spigot().respawn();
+                }
+            }.runTaskLater(plugin, 5L);
+        }).start();
+
     }
 
 }
