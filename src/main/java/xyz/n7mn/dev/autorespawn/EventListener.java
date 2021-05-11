@@ -1,5 +1,6 @@
 package xyz.n7mn.dev.autorespawn;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -18,15 +19,19 @@ public class EventListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void PlayerDeathEvent(PlayerDeathEvent e){
 
-        new Thread(()-> {
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    e.getEntity().sendMessage("自動リスポーンします...");
-                    e.getEntity().spigot().respawn();
-                }
-            }.runTaskLater(plugin, 5L);
-        }).start();
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                e.getEntity().sendMessage("自動リスポーンします...");
+                Bukkit.getScheduler().runTask(plugin, new Runnable() {
+                    @Override
+                    public void run() {
+                        e.getEntity().spigot().respawn();
+                    }
+                });
+
+            }
+        }.runTaskLaterAsynchronously(plugin, 5L);
 
     }
 
